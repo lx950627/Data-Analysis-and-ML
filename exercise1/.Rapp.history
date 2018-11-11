@@ -1,0 +1,718 @@
+g<-function(x){return(x);}
+g(2)
+Reduce(function(y,w) w(y),c(function(x) x+1,function(x) x*x,function(x) g(x)/2),A)
+V-c(1,2,3,4,5,0)
+V<-c(1,2,3,4,5,0)
+V
+V[which.min(lapply(V,function(x) x^3))]
+V[which.min(sapply(V,function(x) x^3))]
+V[which.min(unlist(lapply(V,function(x) x)))]
+lapply(c(1,-2,3),abs)
+sapply(c(1,-2,3),abs)
+a<-c(1 4 6,1 5 2)
+a<-c(1 4 61 5 2)
+a<-c(1,4,61,5,2)
+a<-c(1,4,61,5,2;2,4,6,3,2)
+a
+a[2]
+a[0]
+type(a)
+install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))#
+devtools::install_github('IRkernel/IRkernel')
+IRkernel::installspec()
+install.packages("igraph", type="binary")
+library(igraph)
+p <- 0.1 #
+# create random graph#
+g1 <- barabasi.game(100, directed=F)#
+g2 <- erdos.renyi.game(100, p, directed=F)#
+# create random graph with given degree distribution#
+g3 <- degree.sequence.game(rep(2,100))#
+degree(g)
+degree(g1)
+plot(g1,vertex.size=8, vertex.label.cex=0.7)
+library(igraph)
+g1 <- barabasi.game(100, directed=F)
+g1
+plot(g1,vertex.size=8, vertex.label.cex=0.7)
+a<-(1,2,3,4,5,6,7,8)
+a<-x(1,2,3,4,5,6,7,8)
+a<-c(1,2,3,4,5,6,7,8)
+a[1:5]
+c(1)
+1
+a[2:5]
+members<-c(1,5,7,9,12)
+score<-(94,98,70,92,95)
+score<-c(94,98,70,92,95)
+df<-data.frame(members,score)
+df
+df_sorted<-df[order(-score),]
+df_sorted
+x = [3 4 , 1 2]
+x
+x<-c(3 4,1 2)
+x
+x<-matrix(c(3,4,1,2),nrow=2,ncol=2)
+x
+x<-t(x)
+x
+y<-c(1,3)
+x*y
+x
+y
+x %*% y
+prop.test(5,5,0.5,alternative=c("two.sided"))
+prop.test(5,5,0.5,alternative=c("two.sided"),conf.level=0.95)
+y <- read.table("ps1.phenos")#
+X <- read.table("ps1.genos")#
+M <- dim(y)[1]#
+N <- 20#
+B <- 1e+5#
+T <- rep(0,B)#
+for (i in 1:B) {#
+  S <-  sample(1:M, N, replace = F)#
+  T[i] <- cor(X[S,1],y[S,1])#
+  }#
+hist(T)#
+quantile(T,0.95)
+hist(T)
+y <- read.table("ps1.phenos")#
+X <- read.table("ps1.genos")#
+M <- dim(y)[1]#
+N <- 20#
+B <- 1e+5#
+T <- rep(0,B)#
+for (i in 1:B) {#
+  S <-  sample(1:M, N, replace = F)#
+  T[i] <- cor(X[S,1],y[S,1])^2*N#
+  }#
+hist(T)#
+quantile(T,0.95)
+X
+show(X)
+X.head()
+head(X)
+head(Y)
+head(y)
+qchisq(1,1)
+qchisq(1,1,lower.tail=FALSE)
+qchisq(8,df=1,lower.tail=FALSE)
+qchisq(8,1)
+pchisq(15, df=2, lower.tail=FALSE)
+pchisq(8, df=1, lower.tail=FALSE)
+pchisq(7.879, df=1, lower.tail=FALSE)
+pchisq(10, df=1, lower.tail=FALSE)
+a<-c(3,4,5,6,7)
+sample(a)
+sample(a)
+sample(a)
+y
+X[S,1]
+X[,1]
+X[:,1]
+2^3
+Y <- read.table("ps1.phenos")#
+X <- read.table("ps1.genos")#
+N <- dim(y)[1]#
+B <- 1e+5#
+T1 <- rep(0,B)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  T1[i] <- N*cor(X[,1],Y_permutation)^2#
+}#
+hist(T1)#
+quantitle(T1,0.95)
+quantile(T1,0.95)
+hist(T1)
+T1
+a<-c(1,2,3,4,5)
+sample(a)
+sample(a)
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  T1[i] <- N*(cor(X[,1],Y_permutation)^2)#
+}#
+hist(T1)
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  #T1[i] <- N*(cor(X[,1],Y_permutation)^2)#
+  T1[i] <- i+1#
+}
+T1
+Y
+Y_permutation <- sample(Y)
+N*(cor(X[,1],Y_permutation)
+)
+cor(X[,1],Y_permutation)
+Y_permutation <- sample(Y)
+cor(X[,1],Y_permutation)
+Y_permutation <- sample(Y)
+cor(X[,1],Y_permutation)
+Y_permutation
+type(Y)
+Y
+sample(Y)
+class(Y)
+class(Y[1])
+y<-list*Y
+y<-list(Y)
+y
+class(y)
+y
+sample(y)
+y<-vector(Y)
+as.vector(Y)
+y<-as.vector(Y)
+y
+class(y)
+sample(y)
+y<-c(t(Y))
+y
+class(y)
+sample(y)
+sample(y)
+Y <- c(t(read.table("ps1.phenos")))#
+X <- read.table("ps1.genos")#
+N <- dim(y)[1]#
+B <- 1e+5#
+T1 <- rep(0,B)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  T1[i] <- N*(cor(X[,1],Y_permutation)^2)#
+}#
+hist(T1)
+T1
+Y <- c(t(read.table("ps1.phenos")))
+Y
+Y_permutation <- sample(Y)
+cor(X[,1],Y_permutation)
+N*(cor(X[,1],Y_permutation)^2)
+len(Y)
+Y.length
+Y.length()
+len(Y)
+length(Y)
+N <- length(Y)#
+B <- 1e+5#
+T1 <- rep(0,B)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  T1[i] <- N*(cor(X[,1],Y_permutation)^2)#
+}#
+hist(T1)
+N <- length(Y)#
+B <- 1e+5#
+T1 <- rep(0,B)#
+T1_observed <- N*(cor(X[,1],Y)^2)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  T1[i] <- N*(cor(X[,1],Y_permutation)^2)#
+}#
+hist(T1)#
+abline(v=T1_observed, col="red", lwd=2)
+T1_observed
+abline(v=T1_observed, col="blue")
+hist(T1)#
+abline(v=T1_observed, col="blue")
+hist(T1)#
+abline(v=T1_observed, col="blue")
+hist(T1,ylab="Value of T1")#
+abline(v=T1_observed, col="blue")
+hist(T1,ylab="Value of T1")#
+abline(v=T1_observed, col="blue")
+hist(T1,ylab="Value of T1")#
+abline(v=T1_observed, col="blue")
+library(ggplot2)
+ggsave(,file="hist.png")
+jpeg('rplot.jpg')#
+h <- hist(T1,ylab="Value of T1")#
+abline(v=T1_observed, col="blue")#
+dev.off()
+jpeg('rplot.jpg')#
+h <- hist(T1,ylab="Value of T1")#
+abline(v=T1_observed, col="blue")#
+dev.off()
+T1 >= T1_observed
+sum(T1>=T1_observed)
+sum(T1>=T1_observed)/B
+curve( dchisq(x, df=28), col='red', main = "Chi-Square Density Graph",#
+          from=0,to=60)
+curve( dchisq(x, df=1), col='red', main = "Chi-Square Density Graph",#
+          from=0,to=60)
+x
+library(ggplot2)#
+#
+ggplot(data.frame(x = c(0, 20)), aes(x = x)) +#
+     stat_function(fun = dchisq, args = list(df = 4))
+c(0,20)
+data.frame(x = c(0, 20)
+)
+ggplot(data.frame(x = c(0, 20)), aes(x = x)) +#
+     stat_function(fun = dchisq, args = list(df = 1))
+ggplot(data.frame(x = c(0, 20)), aes(x = x)) +#
+     stat_function(fun = dchisq, args = list(df = 1))#
+ggsave("chi_squared_1")
+ggplot(data.frame(x = c(0, 20)), aes(x = x)) +#
+     stat_function(fun = dchisq, args = list(df = 1))#
+ggsave("chi_squared_1.png")
+pchisq(10, df=1, lower.tail=FALSE)
+T1_observed
+pchisq(T1_observed, df=1, lower.tail=FALSE)
+ln(10)
+log(1,e)
+ln(exp(3))
+log(1)
+log(e)
+log(exp(3))
+pchisq(10, df=1, lower.tail=FALSE)
+pchisq(2log(32), df=1, lower.tail=FALSE)
+x<-2log(32)
+x<-2*log(32)
+pchisq(x, df=1, lower.tail=FALSE)
+Y <- c(t(read.table("ps1.phenos")))#
+X <- read.table("ps1.genos")#
+N <- length(Y)#
+B <- 1e+5#
+T1 <- rep(0,B)#
+T1_observed <- N*(cor(X[,1],Y)^2)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  T1[i] <- N*(cor(X[,1],Y_permutation)^2)#
+}#
+#
+for (i in 1:B) {#
+   p1[i] <- sum(T1>=T1[i])/B#
+}
+p1 <- rep(0,B)#
+for (i in 1:B) {#
+   p1[i] <- sum(T1>=T1[i])/B#
+}
+p1
+mat<-matrix(list(), nrow=10, ncol=B)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  for(j in 1:10){#
+  	mat[i][j] <- N*(cor(X[,j],Y_permutation)^2)#
+  }#
+}
+mat[1][1]
+mat[2][1]
+mat[2][1][1]
+mat[2][1][[1]
+]
+mat[2][1][[1]][[1]]
+mat<-matrix(vector(), nrow=10, ncol=B)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  for(j in 1:10){#
+  	mat[i][j] <- N*(cor(X[,j],Y_permutation)^2)#
+  }#
+}
+T_mat<-matrix(vector(), nrow=B, ncol=10)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  for(j in 1:10){#
+  	T_mat[i][j] <- N*(cor(X[,j],Y_permutation)^2)#
+  }#
+}
+T_mat[50][4]
+T_mat
+head(T_mat)
+T_mat[1][1]
+tail(T_mat)
+m<-matrix(vector(), nrow=B, ncol=10)#
+for (i in 1:20) {#
+  for(j in 1:10){#
+  	m[i][j] <- i*j  #
+  }#
+}
+m
+m<-matrix(vector(), nrow=20, ncol=10)#
+for (i in 1:20) {#
+  for(j in 1:10){#
+  	m[i][j] <- i*j  #
+  }#
+}
+m
+m[1][2]
+m[1][2]>-2
+m[1][2]<-2
+m[1][1]<-2
+m<-matrix(0, nrow=20, ncol=10)
+m
+m[2][4]=3
+m[2,3]
+T_mat<-matrix(vector(), nrow=B, ncol=10)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  for(j in 1:10){#
+  	T_mat[i,j] <- N*(cor(X[,j],Y_permutation)^2)#
+  }#
+}#
+#
+p_mat<-<-matrix(vector(), nrow=10, ncol=B)#
+for (i in 1:B) {#
+   for(j in 1:10){#
+   	p_mat[i,j]<-sum(T_max[,j]>=T_mat[i,j])/B#
+   }#
+}
+T_mat
+p_mat<-<-matrix(vector(), nrow=10, ncol=B)#
+for (i in 1:B) {#
+   for(j in 1:10){#
+   	p_mat[i,j]<-sum(T_mat[,j]>=T_mat[i,j])/B#
+   }#
+}
+p_mat<-<-matrix(vector(), nrow=10, ncol=B)#
+for (i in 1:B) {#
+   for(j in 1:10){#
+   	p_mat[i,j]<-sum(T_mat[,j]>=T_mat[i,j])/B#
+   }#
+}
+p_mat<-matrix(vector(), nrow=10, ncol=B)#
+for (i in 1:B) {#
+   for(j in 1:10){#
+   	p_mat[i,j]<-sum(T_mat[,j]>=T_mat[i,j])/B#
+   }#
+}
+T_mat[,1]
+p_mat<-matrix(vector(), nrow=B, ncol=10)#
+for (i in 1:B) {#
+   for(j in 1:10){#
+   	p_mat[i,j]<-sum(T_mat[,j]>=T_mat[i,j])/B#
+   }#
+}
+B <- 1e+4#
+#
+T_mat<-matrix(vector(), nrow=B, ncol=10)#
+for (i in 1:B) {#
+  Y_permutation <- sample(Y)#
+  for(j in 1:10){#
+  	T_mat[i,j] <- N*(cor(X[,j],Y_permutation)^2)#
+  }#
+}#
+#
+p_mat<-matrix(vector(), nrow=B, ncol=10)#
+for (i in 1:B) {#
+   for(j in 1:10){#
+   	p_mat[i,j]<-sum(T_mat[,j]>=T_mat[i,j])/B#
+   }#
+}
+p_mat
+fp<-0#
+p_threshold<-0.01#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i][j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}
+fp<-0#
+p_threshold<-0.01#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}
+fp
+fp<-0#
+p_threshold<-0.005#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}
+fp
+fp<-0#
+p_threshold<-0.09#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}
+fp
+fp<-0#
+p_threshold<-0.009#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}
+fp
+fp<-0#
+p_threshold<-0.0095#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}
+fp<-0#
+p_threshold<-0.0095#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0085#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0087#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0086#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00865#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00868#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00869#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00870#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.008695#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.008695555#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.008698555#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.008699555#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.008699999#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0087#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0086#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.008599999999999999#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00865#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0087#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00869999999#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+p_threshold<-0.00869999999#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] < p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00869999999#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] < p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.00869999999#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp
+fp<-0#
+p_threshold<-0.0087#
+for(i in 1:B){#
+	for(j in 1:10){#
+		if(p_mat[i,j] <= p_threshold){#
+			fp<-fp+1#
+			break#
+		}#
+	}#
+}#
+fp

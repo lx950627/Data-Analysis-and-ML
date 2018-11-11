@@ -1,0 +1,662 @@
+w <- matrix(rep(0,11),11,1)#
+newton_loss <- rep(0,100)#
+for(i in 1:100){#
+	y_pre <- sigmoid(X_train %*% w)#
+	grad <- (1/m) * t(X_train) %*% (y_pre - y_train)#
+	H <- hessian(getNegativeLogLikelihood, w, method = "Richardson", X = X_train, y = y_train)#
+	w <- w - ginv(H) %*% grad#
+	newton_loss[i] <- getNegativeLogLikelihood(w,X_train,y_train)#
+}
+newton_loss
+newton_loss_df <- data.frame(1:100,newton_loss)#
+colnames(newton_loss_df)[1]<-"Iteration"#
+p<-ggplot(loss_df,aes(x=Iteration,y=newton_loss))+geom_line()
+p
+newton_loss_df
+newton_loss_df <- data.frame(1:100,newton_loss)#
+colnames(newton_loss_df)[1]<-"Iteration"#
+p<-ggplot(newton_loss_df,aes(x=Iteration,y=newton_loss))+geom_line()#
+ggsave("Newton's Method Plot.png")
+newton_loss_df <- data.frame(1:100,newton_loss)#
+colnames(newton_loss_df)[1]<-"Iteration"#
+p<-ggplot(newton_loss_df,aes(x=Iteration,y=newton_loss))+geom_line()#
+p<-p + labs(x="Number of Iterations",title="NLL-Loss against iterations using Newton's method")#
+ggsave("Newton's Method Plot.png")
+p<-p + labs(x="Number of Iterations",y="NLL",title="NLL-Loss against iterations using Newton's method")#
+ggsave("Newton's Method Plot.png")
+w
+m <- 500#
+X_train<-t(read.fwf("hw.2-2.geno", widths = rep(1,m)))#
+y_train<-read.table("hw.2-2.pheno")#
+X_train<-as.matrix(X_train)#
+y_train<-as.matrix(y_train)
+head(X_train)
+dim(X_train)
+dim(y_train)
+y_train[1,]
+y_train[,1]
+model1<-lm(y_train[,1]~X_train)
+model1
+summary(model1)
+model2<-lm(y_train[,2]~X_train)
+model2
+summary(model2)
+model3<-lm(y_train[,3]~X_train)
+summary(model3)
+model4<-lm(y_train[,4]~X_train)
+summary(model4)
+summary(model1)
+summary(model1)$coefficients
+summary(model1)$coefficients[,4]
+p1<-summary(model1)$coefficients[,4]
+p1[p1<0.1,]
+dim(p1)
+class(p1)
+p1[p1<0.1]
+dim(X_train)[2]
+p1[p1<p_thres]
+p_thres<-0.05/dim(X_train)[2]#
+model1<-lm(y_train[,1]~X_train)#
+model2<-lm(y_train[,2]~X_train)#
+model3<-lm(y_train[,3]~X_train)#
+model4<-lm(y_train[,4]~X_train)#
+#
+p1<-summary(model1)$coefficients[,4]#
+p2<-summary(model2)$coefficients[,4]#
+p3<-summary(model3)$coefficients[,4]#
+p4<-summary(model4)$coefficients[,4]
+p1[p1<p_thres]
+p2[p2<p_thres]
+p1[p1<p_thres]#
+p2[p2<p_thres]#
+p3[p3<p_thres]#
+p4[p4<p_thres]
+summary(model4)
+p1[p1<p_thres]#
+p2[p2<p_thres]#
+p3[p3<p_thres]#
+p4[p4<p_thres]
+pre1<-predict(model1,newdata=train_X)
+pre1<-predict(model1,newdata=X_train)
+pre1<-predict(model1)
+pre1
+class(pre1)
+length(pre1)
+a.b<-lm(y_train[,2]~X_train)
+a
+a.b
+resid(model1)
+p_thres<-0.05/dim(X_train)[2]#
+pheno1.model<-lm(y_train[,1]~X_train)#
+pheno2.model<-lm(y_train[,2]~X_train)#
+pheno3.model<-lm(y_train[,3]~X_train)#
+pheno4.model<-lm(y_train[,4]~X_train)#
+#
+pheno1.plist<-summary(pheno1.model)$coefficients[,4]#
+pheno2.plist<-summary(pheno2.model)$coefficients[,4]#
+pheno3.plist<-summary(pheno3.model)$coefficients[,4]#
+pheno4.plist<-summary(pheno4.model)$coefficients[,4]#
+#
+pheno1.plist[pheno1.plist<p_thres]#
+pheno2.plist[pheno2.plist<p_thres]#
+pheno3.plist[pheno3.plist<p_thres]#
+pheno4.plist[pheno4.plist<p_thres]
+set.seed(42)#
+x <- rnorm(100)
+qqnorm(x);
+qqline(x)
+qqnorm(x); qqline(x)
+qqnorm(pheno1.plist)#
+qqline(pheno1.plist)
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist, col = "steelblue")
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist, col = "steelblue")#
+#
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")#
+#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist, col = "steelblue")#
+png("qq1.png")#
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")#
+png("qq2.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+png("qq3.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+png("qq4.png")
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist, col = "steelblue")#
+png("qq1.png")#
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")#
+png("qq2.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+png("qq3.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+png("qq4.png")#
+dev.off()
+png("qq4.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+dev.off()
+png("qq3.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")
+png("qq3.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+dev.off()
+png("qq1.png")#
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq2.png")#
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq3.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq4.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+dev.off()
+qqnorm(pheno1.plist-mean(pheno1.plist),main="phenotype1")#
+qqline(pheno1.plist-mean(pheno1.plist), col = "steelblue")
+qqnorm(pheno1.plist-mean(pheno1.plist),main="phenotype1")#
+qqline(pheno1.plist-mean(pheno1.plist), col = "steelblue")
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")
+dev.off()
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")
+dev.off()
+dev.off()
+qqnorm(pheno4.plist,main="phenotype4")
+dev.off()
+qqnorm(pheno1.plist-mean(pheno1.plist),main="phenotype1")#
+qqline(pheno1.plist-mean(pheno1.plist), col = "steelblue")
+pdf(file = NULL)
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")
+png("qq1.png")#
+qqnorm(pheno1.plist-mean(pheno1.plist),main="phenotype1")#
+qqline(pheno1.plist-mean(pheno1.plist), col = "steelblue")#
+dev.off()
+plot(x)
+png("qq1.png")#
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist,col = "steelblue")#
+dev.off()#
+#
+png("qq2.png")#
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq3.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq4.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+dev.off()
+dev.off()
+dev.off()
+dev.off()
+dev.off()
+dev.off()
+dev.off()
+dev.off()
+dev.off()
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist,col = "steelblue")
+shapiro.test(pheno1.plist)
+shapiro.test(pheno1.plist)#
+shapiro.test(pheno2.plist)#
+shapiro.test(pheno3.plist)#
+shapiro.test(pheno4.plist)
+phenotype2_258<-data.frame(X_train[,258],y_train[,2])
+dim(phenotype2_258)
+head(phenotype2_258)
+summary(phenotype2_258)
+pheno2.plist[pheno2.plist<p_thres]
+colnames(phenotype2_258)<-c("geno","pheno")
+head(phenotype2_258)
+p <- ggplot(phenotype2_258, aes(x=pheno, y=geno)) + #
+  geom_boxplot()
+p
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno)) + #
+  geom_boxplot()
+p
+class(phenotype2_258$geno)
+phenotype2_258$geno<-as.factor(phenotype2_258$geno)
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno)) + #
++   geom_boxplot()
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno)) + #
+  geom_boxplot()
+p
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno)) + #
+  geom_boxplot()
+p
+phenotype2_258<-data.frame(X_train[,258],y_train[,2])#
+colnames(phenotype2_258)<-c("geno","pheno")#
+phenotype2_258$geno<-as.factor(phenotype2_258$geno)#
+p <- ggplot(phenotype2_258, aes(x=geno, y=,color=geno)) + geom_boxplot()#
+p<-p + labs(x="Phenotype2",y="SNP258",title="The relationship between of Phenotype2 and SNP258")#
+ggsave("Phenotype2_SNP258.png")
+phenotype2_258<-data.frame(X_train[,258],y_train[,2])#
+colnames(phenotype2_258)<-c("geno","pheno")#
+phenotype2_258$geno<-as.factor(phenotype2_258$geno)#
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p<-p + labs(x="Phenotype2",y="SNP258",title="The relationship between of Phenotype2 and SNP258")#
+ggsave("Phenotype2_SNP258.png")
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p<-p + labs(x="SNP258_Genotype",y="Phenotype2",fill="Genotype",title="The Relationship between of Phenotype2 and SNP258")#
+ggsave("Phenotype2_SNP258.png")
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p<-p + labs(x="SNP258_Genotype",y="Phenotype2",color="Genotype",title="The Relationship between of Phenotype2 and SNP258")#
+ggsave("Phenotype2_SNP258.png")
+phenotype3_119<-data.frame(X_train[,119],y_train[,3])#
+colnames(phenotype3_119)<-c("geno","pheno")#
+phenotype3_119$geno<-as.factor(phenotype3_119$geno)#
+p <- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p<-p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+phenotype3_119
+phenotype4_43<-data.frame(X_train[,43],y_train[,4])#
+colnames(phenotype4_43)<-c("geno","pheno")#
+phenotype4_43$geno<-as.factor(phenotype4_43$geno)#
+p <- ggplot(phenotype4_43, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p<-p + labs(x="SNP43_Genotype",y="Phenotype4",color="Genotype",title="The Relationship between of Phenotype4 and SNP43")#
+ggsave("Phenotype4_SNP43.png")
+phenotype2_258<-data.frame(X_train[,258],y_train[,2])#
+colnames(phenotype2_258)<-c("geno","pheno")#
+phenotype2_258$geno<-as.factor(phenotype2_258$geno)#
+p <- ggplot(phenotype2_258, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p<-p + labs(x="SNP258_Genotype",y="Phenotype2",color="Genotype",title="The Relationship between of Phenotype2 and SNP258")#
+ggsave("Phenotype2_SNP258.png")
+phenotype4_43
+summary(phenotype4_43)
+phenotype4_43[phenotype4_43$geno==2,]
+phenotype4_43[phenotype4_43$geno==1,]
+summary(phenotype3_119)
+phenotype3_119[phenotype3_119$geno==0,]
+pheno3.plist[pheno3.plist<p_thres]
+phenotype3_119[phenotype3_119$geno==1,]
+phenotype3_119[phenotype3_119$geno==2,]
+phenotype3_119[phenotype3_119$geno==2,]
+p <- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = NA)#
+p<-p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+<- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = 0)#
+p <-p + coord_cartesian(ylim = 10)#
+p <- p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+p <- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = 0)#
+p <-p + coord_cartesian(ylim = 0)#
+p <- p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+p <- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = 0)#
+p <- p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+phenotype3_119[,2:#]
+phenotype3_119[,2:3]
+phenotype3_119[:,2:3]
+phenotype3_119[,-1]
+head(phenotype3_119[,-1])
+head(phenotype3_119[,c(2,3)])
+haed(phenotype3_119[)
+head(phenotype3_119)
+phenotype3_119<-phenotype3_119[phenotype3_119$geno>0,]
+phenotype3_119<-phenotype3_119[phenotype3_119$geno!=0,]
+head(phenotype3_119)
+phenotype3_119<-data.frame(X_train[,119],y_train[,3])#
+colnames(phenotype3_119)<-c("geno","pheno")
+phenotype3_119<-phenotype3_119[phenotype3_119$geno>0,]
+phenotype3_119$geno<-as.factor(phenotype3_119$geno)#
+p <- ggplot(phenotype3_119[, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = 0)#
+p <- p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+phenotype3_119$geno<-as.factor(phenotype3_119$geno)#
+p <- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = 0)#
+p <- p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+phenotype3_119<-data.frame(X_train[,119],y_train[,3])#
+colnames(phenotype3_119)<-c("geno","pheno")#
+phenotype3_119$geno<-as.factor(phenotype3_119$geno)#
+p <- ggplot(phenotype3_119, aes(x=geno, y=pheno,color=geno)) + geom_boxplot(outlier.size = 0)#
+p <- p + labs(x="SNP119_Genotype",y="Phenotype3",color="Genotype",title="The Relationship between of Phenotype3 and SNP119")#
+ggsave("Phenotype3_SNP119.png")
+phenotype4_43<-data.frame(X_train[,43],y_train[,4])#
+colnames(phenotype4_43)<-c("geno","pheno")#
+phenotype4_43<-phenotype4_43[phenotype4_43$geno<2,]#
+phenotype4_43$geno<-as.factor(phenotype4_43$geno)#
+p <- ggplot(phenotype4_43, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p <- p + labs(x="SNP43_Genotype",y="Phenotype4",color="Genotype",title="The Relationship between of Phenotype4 and SNP43")#
+ggsave("Phenotype4_SNP43.png")
+phenotype4_43<-data.frame(X_train[,43],y_train[,4])#
+colnames(phenotype4_43)<-c("geno","pheno")#
+phenotype4_43$geno<-as.factor(phenotype4_43$geno)#
+p <- ggplot(phenotype4_43, aes(x=geno, y=pheno,color=geno)) + geom_boxplot()#
+p <- p + labs(x="SNP43_Genotype",y="Phenotype4",color="Genotype",title="The Relationship between of Phenotype4 and SNP43")#
+ggsave("Phenotype4_SNP43.png")
+summary(phenotype4_43)
+phenotype4_43[phenotype4_43$geno==0,]
+phenotype4_43[phenotype4_43$geno==1,]
+png("qq4.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+dev.off()
+dev.off()
+png("qq1.png")#
+qqnorm(pheno1.plist,main="phenotype1")#
+qqline(pheno1.plist,col = "steelblue")#
+dev.off()#
+#
+png("qq2.png")#
+qqnorm(pheno2.plist,main="phenotype2")#
+qqline(pheno2.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq3.png")#
+qqnorm(pheno3.plist,main="phenotype3")#
+qqline(pheno3.plist, col = "steelblue")#
+dev.off()#
+#
+png("qq4.png")#
+qqnorm(pheno4.plist,main="phenotype4")#
+qqline(pheno4.plist, col = "steelblue")#
+dev.off()
+f<-function(x){#
+	return (-log(x/m+1))#
+}
+f(1:50)
+(-log(1:50/m+1))
+png("qq1.png")#
+qqnorm(p_expected,p_observed,main="phenotype1")#
+qqline(p_expected,p_observed,col = "steelblue")#
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<(-log(pheno1.plist))#
+png("qq1.png")#
+qqnorm(p1_expected,p_observed,main="phenotype1")#
+qqline(p1_expected,p_observed,col = "steelblue")#
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<(-log(pheno1.plist))#
+png("qq1.png")#
+qqnorm(p_expected,p1_observed,main="phenotype1")#
+qqline(p_expected,p1_observed,col = "steelblue")#
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqnorm(p_expected,p1_observed,main="phenotype1")#
+qqline(p_expected,p1_observed,col = "steelblue")#
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,main="phenotype1")#
+qqline(p_expected,p1_observed,col = "steelblue")#
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,main="phenotype1")#
+dev.off()
+p1_observed
+p_expected
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,main="phenotype1")#
+plot.qqline(p_expected, p1_observed)#
+dev.off()
+p_expected<-(-log(1:m/m+1))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,main="phenotype1")#
+qqline(p_expected, p1_observed)#
+dev.off()
+p1_observed
+pheno1.plist
+log(pheno1.plist)
+p_expected
+log(1:m/m+1)
+1:m/m+1
+p_expected<-(-log((1:m)/(m+1)))
+p_expected
+p1_observed
+p_expected<-(-log((1:m)/(m+1)))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,main="phenotype1")#
+qqline(p_expected, p1_observed)#
+dev.off()
+p_expected<-(-log((1:m)/(m+1)))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,line="quartiles",main="phenotype1")#
+dev.off()
+p_expected<-(-log((1:m)/(m+1)))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,line="quartiles",main="phenotype1")#
+dev.off()
+p_expected<-(-log((1:m)/(m+1)))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,main="phenotype1")#
+dev.off()
+p_expected<-(-log((1:m)/(m+1)))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqplot(p_expected,p1_observed,main="phenotype1")#
+dev.off()
+png("qq1.png")#
+qqplot(p_expected,p1_observed,withIdLine=1,main="phenotype1")#
+dev.off()
+help qqplot
+qqplot
+qqPlot
+install.packages("envstats")
+2
+install.packages("EnvStats")
+library(EnvStats)
+ggPlot
+qqPlot
+p_expected<-(-log((1:m)/(m+1)))#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,withIdLine=1,main="phenotype1")#
+dev.off()
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,main="phenotype1")#
+dev.off()
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,add.line = TRUE,main="phenotype1")#
+dev.off()
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,add.line = TRUE,main="phenotype1")#
+dev.off()#
+#
+p2_observed<-(-log(pheno2.plist))#
+png("qq2.png")#
+qqPlot(p_expected,p2_observed,add.line = TRUE,main="phenotype2")#
+dev.off()#
+#
+p3_observed<-(-log(pheno3.plist))#
+png("qq3.png")#
+qqPlot(p_expected,p3_observed,add.line = TRUE,main="phenotype3")#
+dev.off()#
+#
+p4_observed<-(-log(pheno4.plist))#
+png("qq4.png")#
+qqPlot(p_expected,p4_observed,add.line = TRUE,main="phenotype4")#
+dev.off()
+uniform.test(hist(pheno1.plist))
+ks.test(pheno1.plist,"punif")
+ks.test(pheno2.plist,"punif")
+ks.test(pheno3.plist,"punif")
+ks.test(pheno4.plist,"punif")
+ks.test(pheno1.plist,"punif")#
+ks.test(pheno2.plist,"punif")#
+ks.test(pheno3.plist,"punif")#
+ks.test(pheno4.plist,"punif")
+p3_observed<-(-log(pheno3.plist))#
+png("qq3.png")#
+qqPlot(p_expected,p3_observed,add.line = TRUE,main="phenotype3")#
+dev.off()#
+#
+p4_observed<-(-log(pheno4.plist))#
+png("qq4.png")#
+qqPlot(p_expected,p4_observed,add.line = TRUE,main="phenotype4")#
+dev.off()
+hist(pheno4.plist)
+hist(pheno3.plist)
+hist(pheno1.plist)
+hist(pheno4.plist)
+hist(pheno2.plist)
+dim(y_train)
+summary(pheno4.model)$coefficients[,4]
+hist(summary(pheno4.model)$coefficients[,4])
+summary(pheno4.model)
+summary(pheno4.model)$coefficients[,4]
+length(pheno4.plist)
+f<-summary(pheno4.model)$fstatistic
+f
+pf(f[1],f[2],f[3],lower,tail=F)
+pf(f[1],f[2],f[3],lower.tail=F)
+model<-lm(y_train[,1]~X_train[,1])
+summary(model)
+f <- summary(model$fstatistic#
+    p <- pf(f[1],f[2],f[3],lower.tail=F)
+f <- summary(model)$fstatistic#
+    p <- pf(f[1],f[2],f[3],lower.tail=F)
+p
+p1<-vector()#
+for(i in 1:382){#
+	model<-lm(y_train[,1]~X_train[,i])#
+	f <- summary(model)$fstatistic#
+    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+    p1 <- c(p1,p)#
+}
+p1
+pheno1.plist
+summary(pheno1.model)
+p1<-vector()#
+for(i in 1:382){#
+	model<-lm(y_train[,1]~X_train[,i])#
+	f <- summary(model)$fstatistic#
+    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+    p1 <- c(p1,p)#
+}
+p1
+which(p1<p_thres)
+p2<-vector()#
+for(i in 1:382){#
+	model<-lm(y_train[,2]~X_train[,i])#
+	f <- summary(model)$fstatistic#
+    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+    p2 <- c(p2,p)#
+}
+which(p2<p_thres)
+p2[258]
+pheno2.plist[258]
+pheno2.plist[259]
+getPList<-function(x){#
+    plist <- vector()#
+    for(i in 1:dim(X_train)[2]){#
+    	model<-lm(y_train[,x]~X_train[,i])#
+		f <- summary(model)$fstatistic#
+	    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+	    plist <- c(plist,p) #
+    }#
+    return(plist)#
+}
+pheno1.plist<-getPList(1)#
+pheno2.plist<-getPList(2)#
+pheno3.plist<-getPList(3)#
+pheno4.plist<-getPList(4)
+ks.test(pheno1.plist,"punif")#
+ks.test(pheno2.plist,"punif")#
+ks.test(pheno3.plist,"punif")#
+ks.test(pheno4.plist,"punif")
+pheno1.plist[pheno1.plist<p_thres]#
+pheno2.plist[pheno2.plist<p_thres]#
+pheno3.plist[pheno3.plist<p_thres]#
+pheno4.plist[pheno4.plist<p_thres]
+which(pheno4.plist<p_thres)
+pheno4.plist[which(pheno4.plist<p_thres)]
+library(EnvStats)#
+p_expected<-(-log((1:m)/(m+1)))#
+#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,add.line = TRUE,main="phenotype1")#
+dev.off()#
+#
+p2_observed<-(-log(pheno2.plist))#
+png("qq2.png")#
+qqPlot(p_expected,p2_observed,add.line = TRUE,main="phenotype2")#
+dev.off()#
+#
+p3_observed<-(-log(pheno3.plist))#
+png("qq3.png")#
+qqPlot(p_expected,p3_observed,add.line = TRUE,main="phenotype3")#
+dev.off()#
+#
+p4_observed<-(-log(pheno4.plist))#
+png("qq4.png")#
+qqPlot(p_expected,p4_observed,add.line = TRUE,main="phenotype4")#
+dev.off()
+ks.test(pheno4.plist,"punif")
+hist(pheno4.plist)
+hist(pheno3.plist)
+p_expected<-(-log((1:m)/(m+1)))#
+#
+p1_observed<-(-log(pheno1.plist))#
+png("qq1.png")#
+qqPlot(p_expected,p1_observed,add.line = TRUE,main="phenotype1")#
+dev.off()#
+#
+p2_observed<-(-log(pheno2.plist))#
+png("qq2.png")#
+qqPlot(p_expected,p2_observed,add.line = TRUE,main="phenotype2")#
+dev.off()#
+#
+p3_observed<-(-log(pheno3.plist))#
+png("qq3.png")#
+qqPlot(p_expected,p3_observed,add.line = TRUE,main="phenotype3")#
+dev.off()#
+#
+p4_observed<-(-log(pheno4.plist))#
+png("qq4.png")#
+qqPlot(p_expected,p4_observed,add.line = TRUE,main="phenotype4")#
+dev.off()
+ks.test(pheno4.plist,"punif")
