@@ -1,0 +1,390 @@
+pwd
+pws
+getwd()
+x=read.table(file.choose())
+x
+range(2)
+range(2,5)
+citation()
+help()
+r
+a
+b
+c
+d
+e
+r
+pow(2,3)
+seq(2,10)
+m<-cbind(1,1:7)
+m
+m<-cbind(m,8:14)[,c(1,3,2)]
+m
+c(1,3,2)
+Reduce(function(y,w) w(y),c(function(x) x+1,function(x) x*x,function(x) g(x)/2),A)
+A=1
+Reduce(function(y,w) w(y),c(function(x) x+1,function(x) x*x,function(x) g(x)/2),A)
+g=function(){}
+g=function(x){return x}
+g<-function(x){return(x);}
+g(2)
+Reduce(function(y,w) w(y),c(function(x) x+1,function(x) x*x,function(x) g(x)/2),A)
+V-c(1,2,3,4,5,0)
+V<-c(1,2,3,4,5,0)
+V
+V[which.min(lapply(V,function(x) x^3))]
+V[which.min(sapply(V,function(x) x^3))]
+V[which.min(unlist(lapply(V,function(x) x)))]
+lapply(c(1,-2,3),abs)
+sapply(c(1,-2,3),abs)
+a<-c(1 4 6,1 5 2)
+a<-c(1 4 61 5 2)
+a<-c(1,4,61,5,2)
+a<-c(1,4,61,5,2;2,4,6,3,2)
+a
+a[2]
+a[0]
+type(a)
+install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))#
+devtools::install_github('IRkernel/IRkernel')
+IRkernel::installspec()
+install.packages("igraph", type="binary")
+library(igraph)
+p <- 0.1 #
+# create random graph#
+g1 <- barabasi.game(100, directed=F)#
+g2 <- erdos.renyi.game(100, p, directed=F)#
+# create random graph with given degree distribution#
+g3 <- degree.sequence.game(rep(2,100))#
+degree(g)
+degree(g1)
+plot(g1,vertex.size=8, vertex.label.cex=0.7)
+library(igraph)
+g1 <- barabasi.game(100, directed=F)
+g1
+plot(g1,vertex.size=8, vertex.label.cex=0.7)
+a<-(1,2,3,4,5,6,7,8)
+a<-x(1,2,3,4,5,6,7,8)
+a<-c(1,2,3,4,5,6,7,8)
+a[1:5]
+c(1)
+1
+a[2:5]
+members<-c(1,5,7,9,12)
+score<-(94,98,70,92,95)
+score<-c(94,98,70,92,95)
+df<-data.frame(members,score)
+df
+df_sorted<-df[order(-score),]
+df_sorted
+x = [3 4 , 1 2]
+x
+x<-c(3 4,1 2)
+x
+x<-matrix(c(3,4,1,2),nrow=2,ncol=2)
+x
+x<-t(x)
+x
+y<-c(1,3)
+x*y
+x
+y
+x %*% y
+library(tidyverse)
+data <- read_tsv("pset4.q1.data.tsv")
+data
+head(data)
+data[1]
+dim(data)
+data <- t(read_tsv("pset4.q1.data.tsv"))
+dim(data)
+class(data)
+data <- data.frame(t(read_tsv("pset4.q1.data.tsv")))
+class(data)
+head(data)
+data <- data.frame((read_tsv("pset4.q1.data.tsv"))
+data <- data.frame(read_tsv("pset4.q1.data.tsv"))
+dim(data)
+head(data)
+M <- dim(data)[1]
+M
+M <- dim(data)[2]
+M
+M <- dim(data)[2] - 1#
+#
+getPList<-function(){#
+    plist <- vector()#
+    for(i in 1:M){#
+    	model<-lm(data[,M+1] ~ data[,i])#
+		f <- summary(model)$fstatistic#
+	    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+	    plist <- c(plist,p) #
+    }#
+    return(plist)#
+}
+plist <- getPList()
+dim(plist)
+length(plist)
+head(plist)
+plist <- getPList()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+library(EnvStats)
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+ks.test(p_observed,"punif")
+ks.test(plist,"punif")
+plist
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-1.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+ks.test(plist,"punif")
+ks.test(plist,"punif",0,1)
+class(plist)
+plist
+plist<-as.numeric(plist)
+plist
+)
+ks.test(plist,"punif",0,1)
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-1.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+thres <- 0.05 / M#
+plist[plist <= thres]
+length(plist[plist <= thres])
+save(plist)
+save(plist,file="object")
+ks.test(plist,"punif",0,1)
+head(data[,1:M])
+head(data[,2:M])
+dim(data[,1:M])
+pca_result<-prcomp(data[,1:M],center=T,scale.=T)
+pca_result
+summary(pca_result)
+p <- ggplot(data = data.frame(pca_result$x)) #
+p <- p +  geom_point(aes(x = PC1, y = PC2,) #
+p <- p +  labs(title="Population Visualization using PC1 and PC2")#
+p <- p +  theme_bw()
+p <- ggplot(data = data.frame(pca_result$x)) #
+p <- p +  geom_point(aes(x = PC1, y = PC2))#
+p <- p +  labs(title="Population Visualization using PC1 and PC2")#
+p <- p +  theme_bw()
+p
+p <- ggplot(data = data.frame(pca_result$x)) #
+p <- p +  geom_point(aes(x = PC1, y = PC2))#
+p <- p +  labs(title="Population Visualization using PC1 and PC2")#
+p <- p +  theme_bw() #
+ggsave("pca.png")
+pca_result$x
+head(pca_result$x)
+head(pca_result$x$PC1)
+dim(pca_result$x)
+dim(pca_result$x[1])
+dim(pca_result$x)
+class(pca_result$x)
+pca_result[,1]
+pca_result[1]
+pca_result[,1]
+pca_result[1
+]
+pca_result$x[,1]
+head(pca_result$x)
+pc1 <- pca_result$x[,1]
+getPList_pc<-function(){#
+    plist <- vector()#
+    for(i in 1:M){#
+    	model<-lm(data[,M+1] ~ data[,i] + pc1)#
+		f <- summary(model)$fstatistic#
+	    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+	    plist <- c(plist,p) #
+    }#
+    return(plist)#
+}
+plist_pc <- getPList_pc()
+plist <- getPList_pc()
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+ks.test(plist,"punif",0,1)
+plist
+plist <- getPList()
+plist
+model<-lm(data[,M+1] ~ data[,1] + pc1)
+summary(model)
+f <- summary(model)$fstatistic#
+	    p <- pf(f[1],f[2],f[3],lower.tail=F)
+p
+summary(model)$coefficients[,4]
+summary(model)$coefficients
+summary(model)$coefficients[2,4]
+getPList_pc<-function(){#
+    plist <- vector()#
+    for(i in 1:M){#
+    	model<-lm(data[,M+1] ~ data[,i] + pc1)#
+	    p <- summary(model)$coefficients[2,4]#
+	    plist <- c(plist,p) #
+    }#
+    return(plist)#
+}#
+#
+plist <- getPList_pc()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+plist
+length(plist[plist <= thres])
+getPList<-function(){#
+    plist <- vector()#
+    for(i in 1:M){#
+    	model<-lm(data[,M+1] ~ data[,i])#
+		f <- summary(model)$fstatistic#
+	    p <- pf(f[1],f[2],f[3],lower.tail=F)#
+	    plist <- c(plist,p) #
+    }#
+    return(plist)#
+}#
+plist <- getPList()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-1.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+ks.test(plist,"punif",0,1)
+getPList_pc<-function(){#
+    plist <- vector()#
+    for(i in 1:M){#
+    	model<-lm(data[,M+1] ~ data[,i] + pc1)#
+	    p <- summary(model)$coefficients[2,4]#
+	    plist <- c(plist,p) #
+    }#
+    return(plist)#
+}#
+#
+plist <- getPList_pc()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+ks.test(plist,"punif",0,1)
+plist
+plist <- getPList()
+ks.test(plist,"punif",0,1)
+plist <- getPList_pc()
+ks.test(plist,"punif",0,1)
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+length(plist[plist <= thres])
+uniform.test(hist(plist))
+plist <- getPList_pc()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot(PC1 included")#
+dev.off()#
+#
+length(plist[plist <= thres]) # 0
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,add.line = TRUE,main="p-value QQ plot (PC1 included)")#
+dev.off()
+plist <- getPList()
+rnorm(1)
+plist <- plist+rnorm(1)/1000
+ks.test(plist,"punif",0,1)
+rnorm(2000)
+plist <- plist+rnorm(2000)/1000
+ks.test(plist,"punif",0,1)
+plist
+duplicated(plist)
+length(duplicated(plist))
+length(plist)
+ks.test(duplicated(plist),"punif",0,1)
+x=plist
+x[duplicated(x)]<-x[duplicated(x)]+rnorm(1)/100
+length(x)
+ks.test(x,"punif",0,1)
+load("object")
+ks.test(plist,"punif",0,1)
+summary(plist)
+plist <- getPList_pc()
+summary(plist)
+ks.test(plist,"punif",0,1)
+plist <- getPList_pc()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-2.png")#
+qqPlot(p_expected,p_observed,qq.line.type="0-1",add.line = TRUE,main="p-value QQ plot (PC1 included)")#
+dev.off()
+plist <- getPList()#
+#
+p_expected<-(-log((1:M)/(M+1)))#
+p_observed<-(-log(plist))#
+png("qq-1.png")#
+qqPlot(p_expected,p_observed,qq.line.type="0-1",add.line = TRUE,main="p-value QQ plot")#
+dev.off()
+library(tidyverse)#
+data <- data.frame(read_tsv("hw.4-1.txt"))
+head(data)
+data<-read.table("hw.4-1.txt")
+head(data)
+data<-read.table("hw.4-1.txt",col.names=c("X3","X4","X5"))
+head(data)
+(data$X5-data$X4)*data$X3
+with(data,(X5-X4)*X3)
+mean((data$X5-data$X4)*data$X3)
+mean(with(data,(X5-X4)*X3))
+mean(with(data,(X5-X4)*X3))
+1e3
+4e-4
+4e-3
+d <-mean(with(data,(X5-X4)*X3)) #0.1127192#
+#
+pnorm(d, mean = 0, sd = 4e-3, lower.tail = FALSE)*2
+qnorm(0.5,mean = 0, sd = 4e-3)
+qnorm(0.975,mean = 0, sd = 4e-3)
+head(data)
+sum(with(data,(X5-X4)*X3))
+sum(with(data,(X5-X4)*X3))/1614
+pnorm(d, mean = 0, sd = 4e-3, lower.tail = FALSE) * 2
+data <- read.table("hw.4-1.txt",col.names=c("X3","X4","X5"))
+dim(data)
+d <-mean(with(data,(X5-X4)*X3))
+d
+pnorm(0)
+pnorm(0.668)
+pnorm(0.857)
+pnorm(1)
+pnorm(2)
+pnorm(3)
+a<-with(data,(X5-X4)*X3)
+a
+head(data)
+data <- read.table("hw.4-1.txt",col.names=c("X5","X4","X3"))
+d <-mean(with(data,(X5-X4)*X3)) #0.1127192
+d
+pnorm(d, mean = 0, sd = 4e-3, lower.tail = FALSE) * 2

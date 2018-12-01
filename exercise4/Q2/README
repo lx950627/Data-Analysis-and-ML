@@ -1,0 +1,6 @@
+This directory contains one dataset:
+
+1. hw.4-1.txt
+Contains data from 1614 SNPs in three populations (Europeans, Africans and Neanderthals).
+
+Each column denotes the frequency of allele 1 in the respective population.
